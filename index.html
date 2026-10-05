@@ -308,7 +308,7 @@
   .close__inner .v-display { font-size: var(--v-t-3xl); line-height: 1; max-width: 14ch; }
   .close__inner p { margin-top: var(--v-5); color: var(--v-ink-soft); max-width: 40ch; text-wrap: pretty; }
   .close__btns { margin-top: var(--v-6); display: flex; flex-wrap: wrap; gap: var(--v-3); }
-  .close__meta { margin-top: var(--v-7); display: grid; grid-template-columns: repeat(2, minmax(0, auto)); gap: var(--v-2) var(--v-7); justify-content: start; color: var(--v-ink-soft); font-size: var(--v-t-sm); }
+  .close__meta { margin-top: var(--v-7); display: grid; grid-template-columns: auto; gap: var(--v-2); justify-content: start; color: var(--v-ink-soft); font-size: var(--v-t-sm); }
   .close__tel { grid-column: 1 / -1; font-family: var(--v-font-display); font-weight: 500; font-size: var(--v-t-xl); text-decoration: none; color: var(--v-ink); display: inline-block; padding-block: .3em; margin-bottom: var(--v-1); letter-spacing: -0.01em; justify-self: start; }
   .close__meta b { color: var(--v-ink); font-weight: 600; }
   .close__meta a:not(.close__tel) { color: var(--v-ink); display: inline-block; padding-block: .25em; }
@@ -578,7 +578,6 @@
           </div>
           <footer class="foot">
             <span>Елена Соколова · психолог · Ярославль</span>
-            <span class="foot__more" data-slot-optional>{{юрлицо}} · ИНН {{ИНН}}</span>
           </footer>
         </div>
       </div>
