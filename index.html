@@ -51,7 +51,7 @@
   .v-page .v-label { font-weight: 600; }
   .v-page .v-btn { font-size: var(--v-t-sm); }
 
-  /* световая волна на кнопках */
+  /* световая волна на кнопках — автоцикл */
   .v-btn { position: relative; overflow: hidden; }
   .v-btn::after {
     content: "";
@@ -64,14 +64,12 @@
       rgba(255,255,255,.55) 55%,
       transparent 72%
     );
-    transform: translateX(-140%);
-    transition: transform 0s;
+    animation: btn-wave 4s cubic-bezier(.4,0,.2,1) infinite;
   }
-  @media (hover: hover) and (pointer: fine) {
-    .v-btn:hover::after {
-      transform: translateX(160%);
-      transition: transform .6s cubic-bezier(.4,0,.2,1);
-    }
+  @keyframes btn-wave {
+    0%   { transform: translateX(-140%); }
+    55%  { transform: translateX(160%); }
+    100% { transform: translateX(160%); }
   }
   .nowrap { white-space: nowrap; }
   .q { color: var(--v-accent-deep); }   /* номер вопроса в лейбле */
@@ -84,13 +82,28 @@
   .bar__mark { font-family: var(--v-font-display); font-weight: 500; font-size: var(--v-t-lg); letter-spacing: -0.01em; text-decoration: none; display: inline-flex; align-items: center; gap: .5em; min-height: 44px; white-space: nowrap; }
   .bar__mark i { width: .8em; height: .8em; border-radius: .3em; background: var(--v-accent); display: inline-block; position: relative; flex: none; }
   .bar__mark i::after { content: ""; position: absolute; left: 50%; top: 50%; width: 34%; height: 34%; margin: -17% 0 0 -17%; border-radius: 50%; background: var(--v-canvas); }
-  .qnav { display: flex; gap: var(--v-2); font-size: var(--v-t-sm); }
-  .qnav a { text-decoration: none; color: var(--v-ink-soft); display: inline-flex; align-items: center; white-space: nowrap; padding: .35em .8em; border-radius: 2rem; border: 1px solid transparent; transition: color .16s var(--v-ease-out), border-color .16s var(--v-ease-out), background .16s var(--v-ease-out); }
+  .qnav { display: flex; gap: clamp(.1rem, .5vw, var(--v-2)); font-size: var(--v-t-sm); }
+  .qnav a { text-decoration: none; color: var(--v-ink-soft); display: inline-flex; align-items: center; white-space: nowrap; padding: .35em clamp(.3em, .5vw, .8em); border-radius: 2rem; border: 1px solid transparent; transition: color .16s var(--v-ease-out), border-color .16s var(--v-ease-out), background .16s var(--v-ease-out); }
   @media (hover: hover) and (pointer: fine) { .qnav a:hover { color: var(--v-ink); border-color: var(--v-hair-strong); background: var(--v-canvas); } }
   .bar__right { display: flex; align-items: center; gap: var(--v-4); }
+
+  /* бургер */
+  .bar__burger { display: none; flex-direction: column; justify-content: center; align-items: center; gap: 5px; width: 44px; height: 44px; background: none; border: none; cursor: pointer; padding: 0; border-radius: 8px; flex: none; }
+  .bar__burger span { display: block; width: 20px; height: 2px; background: var(--v-ink); border-radius: 1px; transition: transform .25s var(--v-ease-out), opacity .2s, transform .25s var(--v-ease-out); }
+  .bar__burger[aria-expanded="true"] span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .bar__burger[aria-expanded="true"] span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+  .bar__burger[aria-expanded="true"] span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+  @media (max-width: 860px) { .bar__burger { display: flex; } }
+
+  /* мобильный оверлей */
+  .mobile-nav { display: none; position: fixed; inset: 0; z-index: 20; background: var(--v-canvas); padding: 5rem var(--v-gutter) var(--v-7); flex-direction: column; overflow-y: auto; }
+  .mobile-nav.is-open { display: flex; }
+  .mobile-nav a { font-size: var(--v-t-xl); font-family: var(--v-font-display); font-weight: 500; color: var(--v-ink); text-decoration: none; padding: .75em 0; border-bottom: 1px solid var(--v-hair); transition: color .16s; }
+  .mobile-nav a:last-child { border-bottom: none; }
+  @media (hover: hover) and (pointer: fine) { .mobile-nav a:hover { color: var(--v-accent); } }
   .bar__tel { text-decoration: none; font-weight: 600; font-size: var(--v-t-sm); color: var(--v-ink); display: inline-flex; align-items: center; min-height: 44px; padding: 0 var(--v-2); white-space: nowrap; }
   .bar .v-btn { padding: .7em 1.3em; }
-  @media (max-width: 1100px) { .qnav { display: none; } .v-page .hero__pluses { grid-template-columns: 1fr; } }
+  @media (max-width: 860px) { .qnav { display: none; } .v-page .hero__pluses { grid-template-columns: 1fr; } }
   @media (max-width: 700px) {
     .bar__tel { display: none; }
     .bar__mark { font-size: 1.1rem; }
@@ -358,7 +371,7 @@
   .zap-head .v-display { font-size: var(--v-t-2xl); margin-bottom: var(--v-4); }
   .zap-head p { color: var(--v-ink-soft); max-width: 50ch; text-wrap: pretty; margin: 0; }
   .zap-grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--v-8); align-items: start; }
-  .zap-form { background: #B0B0A5; border-radius: var(--v-radius); padding: var(--v-7); box-shadow: 0 6px 36px rgba(60,58,50,.22); display: grid; gap: var(--v-5); }
+  .zap-form { background: #B8C4BE; border-radius: var(--v-radius); padding: var(--v-7); box-shadow: 0 6px 36px rgba(60,58,50,.22); display: grid; gap: var(--v-5); }
   .zap-row { display: grid; gap: var(--v-5); }
   .zap-row--2 { grid-template-columns: 1fr 1fr; }
   .zap-field { display: grid; gap: var(--v-1); }
@@ -416,9 +429,20 @@
       <a href="#zapis">Запись</a>
     </nav>
     <div class="bar__right">
+      <button class="bar__burger" aria-label="Меню" aria-expanded="false" aria-controls="mobile-nav">
+        <span></span><span></span><span></span>
+      </button>
       <a class="v-btn" href="#zapis">Записаться</a>
     </div>
   </header>
+  <nav id="mobile-nav" class="mobile-nav" aria-label="Мобильное меню" aria-hidden="true">
+    <a href="#uslugi">Запросы</a>
+    <a href="#bolno">Мне поможет?</a>
+    <a href="#vizit">Как это работает?</a>
+    <a href="#ceny">Цены</a>
+    <a href="#vrachi">О специалисте</a>
+    <a href="#zapis">Запись</a>
+  </nav>
 
   <main>
 
@@ -480,7 +504,7 @@
         </ol>
         <div class="usl__foot" data-v-in data-v-in-self>
           <p>Не нашли свою ситуацию? Напишите: разберёмся на первой встрече. Иногда запрос становится яснее уже в разговоре.</p>
-          <a class="v-btn v-btn--ghost" href="#zapis">Записаться</a>
+          <a class="v-btn" href="#zapis">Записаться</a>
         </div>
       </div>
     </section>
@@ -795,6 +819,17 @@
     var bar = document.querySelector('.bar'), on = null;
     function tick() { var s = window.scrollY > 40; if (s !== on) { on = s; bar.classList.toggle('is-scrolled', s); } }
     window.addEventListener('scroll', tick, { passive: true }); tick();
+  })();
+
+  // Бургер-меню
+  (function () {
+    var burger = document.querySelector('.bar__burger');
+    var mobileNav = document.getElementById('mobile-nav');
+    if (!burger || !mobileNav) return;
+    function openMenu() { mobileNav.classList.add('is-open'); burger.setAttribute('aria-expanded', 'true'); mobileNav.setAttribute('aria-hidden', 'false'); document.body.style.overflow = 'hidden'; }
+    function closeMenu() { mobileNav.classList.remove('is-open'); burger.setAttribute('aria-expanded', 'false'); mobileNav.setAttribute('aria-hidden', 'true'); document.body.style.overflow = ''; }
+    burger.addEventListener('click', function () { mobileNav.classList.contains('is-open') ? closeMenu() : openMenu(); });
+    mobileNav.querySelectorAll('a').forEach(function (a) { a.addEventListener('click', closeMenu); });
   })();
 
 </script>
