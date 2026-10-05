@@ -24,7 +24,7 @@
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 32 32%27%3E%3Crect x=%274%27 y=%274%27 width=%2724%27 height=%2724%27 rx=%2710%27 fill=%27%231f7f74%27/%3E%3Ccircle cx=%2716%27 cy=%2716%27 r=%275%27 fill=%27%23f6f8f7%27/%3E%3C/svg%3E">
 <link rel="stylesheet" href="vibe.css">
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"LocalBusiness","name":"Елена Соколова","description":"Психолог в Ярославле: работаю с тревогой, отношениями и самооценкой. Индивидуальные консультации очно и онлайн.","url":"https://dmitrylysenkov62-cpu.github.io/psiholog-yaroslavl/","image":"https://dmitrylysenkov62-cpu.github.io/psiholog-yaroslavl/assets/og.jpg","telephone":"8 (905) 014-57-35","openingHours":"Mo-Fr 10:00-18:00 Sa 10:00-14:00","address":{"@type":"PostalAddress","streetAddress":"ул. Свободы, 8/38","addressLocality":"Ярославль","addressCountry":"RU"},"priceRange":"от 1 500 ₽","sameAs":["{{ссылка-карты}}"]}
+{"@context":"https://schema.org","@type":"LocalBusiness","name":"Елена Соколова","description":"Психолог в Ярославле: работаю с тревогой, отношениями и самооценкой. Индивидуальные консультации очно и онлайн.","url":"https://dmitrylysenkov62-cpu.github.io/psiholog-yaroslavl/","image":"https://dmitrylysenkov62-cpu.github.io/psiholog-yaroslavl/assets/og.jpg","openingHours":"Mo-Fr 10:00-18:00 Sa 10:00-14:00","address":{"@type":"PostalAddress","streetAddress":"ул. Свободы, 8/38","addressLocality":"Ярославль","addressCountry":"RU"},"priceRange":"от 1 500 ₽","sameAs":["{{ссылка-карты}}"]}
 </script>
 <style>
   /* ---- тема: шесть цветов, два шрифта. Палитра А «белый + мягкий бирюзовый» ---- */
@@ -296,33 +296,70 @@
   .reviews__fact { margin-top: var(--v-7); padding-top: var(--v-5); border-top: 1px solid var(--v-hair); font-size: var(--v-t-sm); color: var(--v-ink-soft); }
   @media (max-width: 860px) { .reviews__list { grid-template-columns: 1fr; } .reviews__head { grid-template-columns: 1fr; align-items: start; margin-bottom: var(--v-6); } }
 
-  /* ---- 7 · вопрос 5 «Когда можно прийти?»: кабинет вечером за текстом, колонка с нотками, футер внутри сцены --- */
-  .close__back img { position: absolute; max-width: none; width: 112%; height: 112%; left: -6%; top: -6%; object-fit: cover; object-position: 64% 50%; }
-  /* колонка света слева под текст: фото остаётся видно справа (кресло, окно, колонка) */
-  .close__col { position: absolute; inset: 0; z-index: 2; pointer-events: none;
-    background: linear-gradient(to right, rgb(246 248 247 / .9) 0%, rgb(246 248 247 / .78) 40%, rgb(246 248 247 / .3) 62%, transparent 78%); }
-  .close { position: relative; z-index: 3; height: 100%; display: grid; grid-template-rows: 1fr auto; padding: 0 var(--v-gutter);
-    background: radial-gradient(60rem 40rem at calc(var(--v-mx, .7) * 100%) calc(var(--v-my, .4) * 100%), rgb(31 127 116 / .12), transparent 60%); }
-  .close__inner { align-self: center; max-width: 46rem; padding-top: var(--v-9); }
-  .close__inner .v-label { display: block; margin-bottom: var(--v-5); }
-  .close__inner .v-display { font-size: var(--v-t-3xl); line-height: 1; max-width: 14ch; }
-  .close__inner p { margin-top: var(--v-5); color: var(--v-ink-soft); max-width: 40ch; text-wrap: pretty; }
-  .close__btns { margin-top: var(--v-6); display: flex; flex-wrap: wrap; gap: var(--v-3); }
-  .close__meta { margin-top: var(--v-7); display: grid; grid-template-columns: auto; gap: var(--v-2); justify-content: start; color: var(--v-ink-soft); font-size: var(--v-t-sm); }
-  .close__tel { grid-column: 1 / -1; font-family: var(--v-font-display); font-weight: 500; font-size: var(--v-t-xl); text-decoration: none; color: var(--v-ink); display: inline-block; padding-block: .3em; margin-bottom: var(--v-1); letter-spacing: -0.01em; justify-self: start; }
-  .close__meta b { color: var(--v-ink); font-weight: 600; }
-  .close__meta a:not(.close__tel) { color: var(--v-ink); display: inline-block; padding-block: .25em; }
-  .foot { display: grid; grid-template-columns: auto 1fr auto; gap: var(--v-4) var(--v-6); align-items: baseline; margin: 0 calc(-1 * var(--v-gutter)); padding: var(--v-6) var(--v-gutter); border-top: 1px solid var(--v-hair);
+  /* ---- 7б · FAQ ---- */
+  .faq-section { background: var(--v-canvas); padding: var(--v-section) 0; border-top: 1px solid var(--v-hair); }
+  .faq { display: grid; grid-template-columns: 1fr 1.7fr; gap: var(--v-8); align-items: start; }
+  .faq__head .v-label { display: block; margin-bottom: var(--v-5); }
+  .faq__head .v-display { font-size: var(--v-t-2xl); margin-bottom: var(--v-5); }
+  .faq__head p { color: var(--v-ink-soft); max-width: 26ch; text-wrap: pretty; margin: 0; font-size: var(--v-t-sm); }
+  .faq__list { border-top: 1px solid var(--v-hair); }
+  .faq__item { border-bottom: 1px solid var(--v-hair); }
+  .faq__q { display: flex; justify-content: space-between; align-items: start; gap: var(--v-5); padding: var(--v-5) 0; cursor: pointer; list-style: none; font-family: var(--v-font-display); font-weight: 500; font-size: clamp(1rem, .9rem + .3vw, 1.1rem); letter-spacing: -0.01em; line-height: 1.3; }
+  .faq__q::marker, .faq__q::-webkit-details-marker { display: none; }
+  .faq__icon { flex: none; width: 1.2rem; height: 1.2rem; position: relative; margin-top: .15em; }
+  .faq__icon::before, .faq__icon::after { content: ''; position: absolute; background: var(--v-ink); border-radius: 1px; transition: transform .28s ease, opacity .28s ease; }
+  .faq__icon::before { width: 100%; height: 1.5px; top: 50%; transform: translateY(-50%); }
+  .faq__icon::after { width: 1.5px; height: 100%; left: 50%; top: 0; transform: translateX(-50%); }
+  details[open] .faq__icon::after { transform: translateX(-50%) rotate(90deg); opacity: 0; }
+  .faq__a { font-size: var(--v-t-sm); color: var(--v-ink-soft); line-height: 1.65; padding-bottom: var(--v-5); text-wrap: pretty; max-width: 60ch; margin: 0; }
+  @media (max-width: 860px) { .faq { grid-template-columns: 1fr; gap: var(--v-6); } }
+
+  /* ---- 7 · секция записи с формой ---- */
+  .zap-section { background: var(--v-canvas); padding: var(--v-section) 0 0; }
+  .zap-head { margin-bottom: var(--v-8); }
+  .zap-head .v-label { display: block; margin-bottom: var(--v-4); }
+  .zap-head .v-display { font-size: var(--v-t-2xl); margin-bottom: var(--v-4); }
+  .zap-head p { color: var(--v-ink-soft); max-width: 50ch; text-wrap: pretty; margin: 0; }
+  .zap-grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--v-8); align-items: start; }
+  .zap-form { background: var(--v-surface); border-radius: var(--v-radius); padding: var(--v-7); box-shadow: var(--v-e1); display: grid; gap: var(--v-5); }
+  .zap-row { display: grid; gap: var(--v-5); }
+  .zap-row--2 { grid-template-columns: 1fr 1fr; }
+  .zap-field { display: grid; gap: var(--v-1); }
+  .zap-field > span { font-size: var(--v-t-xs); font-weight: 600; letter-spacing: .01em; color: var(--v-ink-soft); }
+  .zap-field em { font-style: normal; font-weight: 400; }
+  .zap-field input, .zap-field select, .zap-field textarea {
+    width: 100%; padding: .7em .9em; border: 1px solid var(--v-hair-strong); border-radius: 10px;
+    background: var(--v-canvas); font-family: var(--v-font-text); font-size: var(--v-t-sm); color: var(--v-ink);
+    transition: border-color .2s; outline: none; box-sizing: border-box; -webkit-appearance: none; appearance: none; }
+  .zap-field input:focus, .zap-field select:focus, .zap-field textarea:focus { border-color: var(--v-accent); box-shadow: 0 0 0 3px rgb(31 127 116 / .12); }
+  .zap-field input::placeholder, .zap-field textarea::placeholder { color: var(--v-ink-soft); opacity: .55; }
+  .zap-field textarea { resize: vertical; min-height: 6.5rem; }
+  .zap-field select { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='8'%3E%3Cpath d='M1 1l6 6 6-6' stroke='%23546367' stroke-width='1.6' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right .9em center; padding-right: 2.6em; cursor: pointer; }
+  .zap-check { display: grid; grid-template-columns: auto 1fr; gap: .7em; align-items: start; font-size: var(--v-t-xs); color: var(--v-ink-soft); line-height: 1.45; cursor: pointer; }
+  .zap-check input[type=checkbox] { width: 1.1rem; height: 1.1rem; margin-top: .12em; cursor: pointer; accent-color: var(--v-accent); flex: none; }
+  .zap-form .v-btn { width: 100%; justify-content: center; }
+  .zap-status { display: none; text-align: center; padding: var(--v-8) var(--v-5); }
+  .zap-status h3 { font-family: var(--v-font-display); font-weight: 500; font-size: var(--v-t-xl); letter-spacing: var(--v-track-tight); color: var(--v-accent-deep); margin-bottom: var(--v-3); }
+  .zap-status p { color: var(--v-ink-soft); }
+  .zap-form.is-sent > :not(.zap-status) { display: none; }
+  .zap-form.is-sent { padding: var(--v-5); }
+  .zap-form.is-sent .zap-status { display: block; }
+  .zap-contacts { display: grid; gap: var(--v-6); align-content: start; }
+  .zap-tel { font-family: var(--v-font-display); font-weight: 500; font-size: clamp(1.6rem, 1rem + 1.6vw, 2.4rem); letter-spacing: -0.02em; text-decoration: none; color: var(--v-ink); display: block; line-height: 1.1; }
+  .zap-tel:hover { color: var(--v-accent); }
+  .zap-info { display: grid; gap: var(--v-2); font-size: var(--v-t-sm); color: var(--v-ink-soft); }
+  .zap-info p { margin: 0; }
+  .zap-info b { color: var(--v-ink); font-weight: 600; }
+  .zap-map { border-radius: var(--v-radius); overflow: hidden; aspect-ratio: 4/3; box-shadow: var(--v-e1); }
+  .zap-map iframe { width: 100%; height: 100%; border: 0; display: block; }
+  .foot { display: grid; grid-template-columns: auto 1fr auto; gap: var(--v-4) var(--v-6); align-items: baseline; margin: 0 calc(-1 * var(--v-gutter)); margin-top: var(--v-section); padding: var(--v-6) var(--v-gutter); border-top: 1px solid var(--v-hair);
     background: rgb(246 248 247 / .84); -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px); font-size: var(--v-t-xs); color: var(--v-ink-soft); }
   .foot__warn { grid-column: 1 / -1; color: var(--v-ink); font-weight: 600; letter-spacing: .01em; }
   @media (max-width: 860px) {
-    .close__back img { object-position: 74% 50%; }
-    .close__col { background: linear-gradient(to bottom, rgb(246 248 247 / .92) 0%, rgb(246 248 247 / .84) 55%, rgb(246 248 247 / .5) 100%); }
-    .close__inner { padding-top: var(--v-8); }
-    .close__inner .v-display { font-size: var(--v-t-2xl); max-width: none; }
-    .close__meta { grid-template-columns: 1fr; gap: var(--v-2); margin-top: var(--v-6); }
-    .close__tel { font-size: var(--v-t-lg); }
-    .foot { grid-template-columns: 1fr; gap: var(--v-2); font-size: var(--v-t-sm); padding: var(--v-5) var(--v-gutter) calc(var(--v-5) + env(safe-area-inset-bottom)); }
+    .zap-grid { grid-template-columns: 1fr; }
+    .zap-row--2 { grid-template-columns: 1fr; }
+    .zap-form { padding: var(--v-5); }
+    .foot { grid-template-columns: 1fr; gap: var(--v-2); font-size: var(--v-t-sm); padding: var(--v-5) var(--v-gutter) calc(var(--v-5) + env(safe-area-inset-bottom)); margin-top: var(--v-8); }
     .foot__more { display: none; }
   }
 </style>
@@ -342,8 +379,7 @@
       <a href="#zapis">Запись</a>
     </nav>
     <div class="bar__right">
-      <a class="bar__tel" href="tel:89050145735">8 (905) 014-57-35</a>
-      <a class="v-btn" href="https://t.me/Elena_Sokolova_psy" target="_blank" rel="noopener">Записаться</a>
+      <a class="v-btn" href="#zapis">Записаться</a>
     </div>
   </header>
 
@@ -371,8 +407,7 @@
           <h1 class="v-display v-display--xl" data-v-kinetic="lines">Психолог в Ярославле – даже если пока не знаете, с чего начать</h1>
           <p class="v-lede">Работаю с тревогой, отношениями и самооценкой. Очно и онлайн. Форматы и цены – здесь, без звонка.</p>
           <div class="hero__cta">
-            <a class="v-btn" href="https://t.me/Elena_Sokolova_psy" target="_blank" rel="noopener">Записаться</a>
-            <a class="hero__tel" href="tel:89050145735">или позвоните <b>8 (905) 014-57-35</b></a>
+            <a class="v-btn" href="#zapis">Записаться</a>
           </div>
         </div>
 
@@ -408,7 +443,7 @@
         </ol>
         <div class="usl__foot" data-v-in data-v-in-self>
           <p>Не нашли свою ситуацию? Напишите: разберёмся на первой встрече. Иногда запрос становится яснее уже в разговоре.</p>
-          <a class="v-btn v-btn--ghost" href="https://t.me/Elena_Sokolova_psy" target="_blank" rel="noopener">Записаться</a>
+          <a class="v-btn v-btn--ghost" href="#zapis">Записаться</a>
         </div>
       </div>
     </section>
@@ -423,7 +458,7 @@
         </figure>
         <div class="pain__copy" data-v-in data-v-stagger="70">
           <span class="v-label"><span class="q">Вопрос 1</span> · Мне поможет?</span>
-          <h2 class="v-display v-display--lg">Три мысли, которые мешают позвонить</h2>
+          <h2 class="v-display v-display--lg">Три мысли, которые мешают обратиться</h2>
           <p>Почти все, кто сейчас работает со мной, думали одно из трёх. Ни одно из них не оказалось правдой.</p>
           <ul class="rows">
             <li><span>«Я сам справлюсь»</span><h3>Справляетесь уже давно – а легче не стало</h3><p>Само иногда проходит. Но если тревога, апатия или конфликт тянутся месяцами – это сигнал, что без разбора не обойтись.</p></li>
@@ -447,13 +482,13 @@
           <h2 class="v-display v-display--lg">Первая встреча – рассказываете, что происходит. Готовиться не нужно</h2>
           <p>Четыре шага от «напишу» до «понял, что делать». Ничего не нужно знать заранее: запрос часто становится яснее уже в разговоре.</p>
           <ol class="steps">
-            <li><h3><small>Шаг 1</small>Пишете в мессенджер</h3><p>Договариваемся о времени и формате: очно в кабинете или онлайн. Никакого «подождите три дня»: обычно отвечаю в тот же день.</p></li>
+            <li><h3><small>Шаг 1</small>Оставляете заявку</h3><p>Договариваемся о времени и формате: очно в кабинете или онлайн. Никакого «подождите три дня»: обычно отвечаю в тот же день.</p></li>
             <li><h3><small>Шаг 2</small>Первая встреча – 60 минут</h3><p>Рассказываете, что сейчас происходит. Я задаю вопросы, слушаю, в конце говорю, как вижу ситуацию и что можно сделать.</p></li>
             <li><h3><small>Шаг 3</small>Договариваемся о работе</h3><p>Если решаете продолжить – определяем направление и примерный объём: краткосрочная работа по запросу или более длительная. Давления нет.</p></li>
             <li><h3><small>Шаг 4</small>Встречаемся раз в неделю</h3><p>Обычно в одно и то же время. Между сессиями доступен в мессенджере для коротких вопросов.</p></li>
           </ol>
           <div class="cta">
-            <a class="v-btn" href="https://t.me/Elena_Sokolova_psy" target="_blank" rel="noopener">Записаться</a>
+            <a class="v-btn" href="#zapis">Записаться</a>
             <span>Первая встреча – просто поговорить и посмотреть, можно ли работать вместе.</span>
           </div>
         </div>
@@ -553,34 +588,128 @@
       </div>
     </section>
 
-    <!-- 7 · ДЕЙСТВИЕ: «Как начать?» – финал держит реплику, футер внутри сцены -->
-    <section data-v-act="pin" data-v-span="1.3" data-v-drift="#f6f8f7" id="zapis" aria-label="Вопрос 5: как начать?">
-      <div data-v-stage>
-        <div class="v-layer close__back" data-v-parallax="-0.3">
-          <img id="final-img" src="assets/final.webp" alt="" width="1920" height="1080" loading="lazy" decoding="async">
-        </div>
-        <div class="close__col" aria-hidden="true"></div>
-        <div class="close" data-v-spotlight>
-          <div class="close__inner">
-            <div data-v-cue="0.04">
-              <span class="v-label"><span class="q">Вопрос 5</span> · Как начать?</span>
-              <h2 class="v-display v-display--xl">Запишитесь на первую встречу</h2>
-              <p>Напишите в мессенджер: подберём время, ответим на вопросы. Не нужно готовиться – просто напишите, что сейчас происходит.</p>
-              <div class="close__btns">
-                <a class="v-btn" href="https://t.me/Elena_Sokolova_psy" target="_blank" rel="noopener" data-v-magnet="0.22" data-v-rise="0">Записаться</a>
-              </div>
-            </div>
-            <div class="close__meta" data-v-cue="0.1">
-              <a class="close__tel" href="tel:89050145735">8 (905) 014-57-35</a>
-              <span>г. Ярославль, ул. Свободы, 8/38</span>
-              <span>Пн–Пт 10:00–18:00, Сб 10:00–14:00, приём по записи</span>
-            </div>
+    <!-- 7б · FAQ -->
+    <section class="faq-section v-section" data-v-act="flow" aria-label="Частые вопросы">
+      <div class="v-wrap">
+        <div class="faq" data-v-in data-v-stagger="60">
+          <div class="faq__head">
+            <span class="v-label">Вопросы</span>
+            <h2 class="v-display v-display--lg">Частые вопросы</h2>
+            <p>Если вашего вопроса здесь нет, задайте его при записи: отвечу до встречи.</p>
           </div>
-          <footer class="foot">
-            <span>Елена Соколова · психолог · Ярославль</span>
-          </footer>
+          <div class="faq__list">
+            <details class="faq__item">
+              <summary class="faq__q">С чего начать, если я никогда не был у психолога? <span class="faq__icon" aria-hidden="true"></span></summary>
+              <p class="faq__a">Просто напишите — больше ничего не нужно. Не нужно формулировать запрос, знать что-то о психологии или готовить «правильные» слова. На первой встрече вы рассказываете, что происходит, я задаю вопросы. Запрос часто становится яснее уже в разговоре.</p>
+            </details>
+            <details class="faq__item">
+              <summary class="faq__q">Что происходит на первой встрече? <span class="faq__icon" aria-hidden="true"></span></summary>
+              <p class="faq__a">Вы рассказываете, что сейчас происходит — в любом порядке, без структуры. Я слушаю, задаю вопросы и в конце говорю, как вижу ситуацию и что можно сделать. Никаких тестов и домашних заданий с первого раза нет.</p>
+            </details>
+            <details class="faq__item">
+              <summary class="faq__q">Как понять, что мне нужен психолог, а не разговор с другом? <span class="faq__icon" aria-hidden="true"></span></summary>
+              <p class="faq__a">Если одно и то же по кругу — тревога, конфликт, ощущение тупика — и разговоры с близкими не меняют ситуацию, это сигнал. Психолог не даёт советов и не оценивает: он помогает увидеть то, что изнутри не видно.</p>
+            </details>
+            <details class="faq__item">
+              <summary class="faq__q">Психолог будет говорить мне, как правильно жить? <span class="faq__icon" aria-hidden="true"></span></summary>
+              <p class="faq__a">Нет. Я не советую и не оцениваю. Задаю вопросы — вы находите собственные ответы, которые работают именно для вас. Моя задача не убедить вас что-то сделать, а помочь понять, чего вы сами хотите.</p>
+            </details>
+            <details class="faq__item">
+              <summary class="faq__q">Я не знаю, как объяснить свою проблему — это нормально? <span class="faq__icon" aria-hidden="true"></span></summary>
+              <p class="faq__a">Абсолютно нормально. Большинство людей приходят именно с этим ощущением: «что-то не так, но я не понимаю что». Это не мешает работе — наоборот, поиск ответа на этот вопрос часто и есть начало терапии.</p>
+            </details>
+            <details class="faq__item">
+              <summary class="faq__q">Помогут ли сессии, если проблема тянется несколько лет? <span class="faq__icon" aria-hidden="true"></span></summary>
+              <p class="faq__a">Да. Длительность проблемы не определяет результат — важнее готовность смотреть на неё честно. Долгие паттерны меняются медленнее, но меняются: обычно уже через несколько встреч становится понятно, в каком направлении двигаться.</p>
+            </details>
+          </div>
         </div>
       </div>
+    </section>
+
+    <!-- 7 · ДЕЙСТВИЕ: запись – форма + контакты + карта -->
+    <section class="zap-section" id="zapis" aria-label="Запись на консультацию">
+      <div class="v-wrap">
+
+        <div class="zap-head" data-v-in>
+          <span class="v-label">Запись</span>
+          <h2 class="v-display">Оставьте заявку,<br>подберём время</h2>
+          <p>Напишите удобное время и как с вами связаться. Отвечу в часы приёма и предложу варианты.</p>
+        </div>
+
+        <div class="zap-grid" data-v-in>
+
+          <!-- форма -->
+          <form id="zap-form" class="zap-form" action="https://formsubmit.co/emsdl@mail.ru" method="POST">
+            <input type="hidden" name="_subject" value="Запись на консультацию – Елена Соколова">
+            <input type="hidden" name="_captcha" value="false">
+            <input type="hidden" name="_template" value="table">
+
+            <div class="zap-row zap-row--2">
+              <label class="zap-field">
+                <span>Как к вам обращаться</span>
+                <input type="text" name="Имя" placeholder="Имя" required>
+              </label>
+              <label class="zap-field">
+                <span>Телефон или мессенджер</span>
+                <input type="text" name="Контакт" placeholder="+7 900 000-00-00" required>
+              </label>
+            </div>
+
+            <div class="zap-row zap-row--2">
+              <label class="zap-field">
+                <span>Формат</span>
+                <select name="Формат">
+                  <option>Очно в Ярославле</option>
+                  <option>Онлайн</option>
+                </select>
+              </label>
+              <label class="zap-field">
+                <span>Удобное время</span>
+                <input type="text" name="Время" placeholder="вечером, в будни">
+              </label>
+            </div>
+
+            <label class="zap-field">
+              <span>Коротко о запросе <em>– необязательно</em></span>
+              <textarea name="Запрос"></textarea>
+            </label>
+
+            <label class="zap-check">
+              <input type="checkbox" required>
+              <span>Согласен на обработку персональных данных для связи со мной. Данные используются только для записи и не передаются третьим лицам</span>
+            </label>
+
+            <button type="submit" class="v-btn">Записаться</button>
+
+            <div class="zap-status">
+              <h3>Заявка отправлена</h3>
+              <p>Елена свяжется с вами в течение суток и предложит удобное время.</p>
+            </div>
+          </form>
+
+          <!-- контакты -->
+          <div class="zap-contacts">
+            <div class="zap-info">
+              <p><b>ул. Свободы, 8/38</b>, Ярославль</p>
+              <p>Пн–Пт 10:00–18:00, Сб 10:00–14:00, приём по записи</p>
+            </div>
+            <div class="zap-map">
+              <iframe
+                src="https://yandex.ru/map-widget/v1/?ll=39.8940%2C57.6265&z=16&l=map&pt=39.8940%2C57.6265%2Cpm2rdm"
+                title="Карта: ул. Свободы, 8/38, Ярославль"
+                loading="lazy"
+                allowfullscreen></iframe>
+            </div>
+          </div>
+
+        </div><!-- /zap-grid -->
+
+        <footer class="foot">
+          <span>Елена Соколова · психолог · Ярославль</span>
+        </footer>
+
+      </div><!-- /v-wrap -->
     </section>
 
   </main>
@@ -594,6 +723,35 @@
     document.getElementById('ceny').setAttribute('data-v-span', '2.4');
   }
   Vibe.mount(document.querySelector('.v-page'));
+
+  // Форма записи: AJAX-отправка через FormSubmit, без редиректа.
+  (function () {
+    var form = document.getElementById('zap-form');
+    if (!form) return;
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var btn = form.querySelector('button[type=submit]');
+      btn.disabled = true;
+      btn.textContent = 'Отправляю…';
+      fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form),
+        headers: { 'Accept': 'application/json' }
+      }).then(function (r) {
+        if (r.ok) {
+          form.classList.add('is-sent');
+        } else {
+          btn.disabled = false;
+          btn.textContent = 'Записаться';
+          alert('Не удалось отправить. Повторите попытку позже.');
+        }
+      }).catch(function () {
+        btn.disabled = false;
+        btn.textContent = 'Записаться';
+        alert('Нет связи. Повторите попытку позже.');
+      });
+    });
+  })();
 
   // Шапка: подложка после 40 px прокрутки, чтобы текст секций не просвечивал.
   (function () {
