@@ -358,17 +358,7 @@
   .zap-head .v-display { font-size: var(--v-t-2xl); margin-bottom: var(--v-4); }
   .zap-head p { color: var(--v-ink-soft); max-width: 50ch; text-wrap: pretty; margin: 0; }
   .zap-grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--v-8); align-items: start; }
-  .zap-form { background: #B3B1A7; border-radius: var(--v-radius); padding: var(--v-7); box-shadow: 0 6px 36px rgba(60,58,50,.22); display: grid; gap: var(--v-5); position: relative; overflow: hidden; }
-  .zap-form::after {
-    content: ""; position: absolute; inset: 0; pointer-events: none;
-    background: linear-gradient(108deg, transparent 28%, rgba(255,255,255,.38) 45%, rgba(255,255,255,.48) 50%, rgba(255,255,255,.38) 55%, transparent 72%);
-    animation: form-wave 6s cubic-bezier(.4,0,.2,1) infinite;
-  }
-  @keyframes form-wave {
-    0%   { transform: translateX(-130%); }
-    55%  { transform: translateX(160%); }
-    100% { transform: translateX(160%); }
-  }
+  .zap-form { background: #B3B1A7; border-radius: var(--v-radius); padding: var(--v-7); box-shadow: 0 6px 36px rgba(60,58,50,.22); display: grid; gap: var(--v-5); }
   .zap-row { display: grid; gap: var(--v-5); }
   .zap-row--2 { grid-template-columns: 1fr 1fr; }
   .zap-field { display: grid; gap: var(--v-1); }
