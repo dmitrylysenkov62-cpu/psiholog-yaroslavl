@@ -61,10 +61,9 @@
   .bar__mark { font-family: var(--v-font-display); font-weight: 500; font-size: var(--v-t-lg); letter-spacing: -0.01em; text-decoration: none; display: inline-flex; align-items: center; gap: .5em; min-height: 44px; white-space: nowrap; }
   .bar__mark i { width: .8em; height: .8em; border-radius: .3em; background: var(--v-accent); display: inline-block; position: relative; flex: none; }
   .bar__mark i::after { content: ""; position: absolute; left: 50%; top: 50%; width: 34%; height: 34%; margin: -17% 0 0 -17%; border-radius: 50%; background: var(--v-canvas); }
-  .qnav { display: flex; gap: var(--v-5); font-size: var(--v-t-sm); }
-  .qnav a { text-decoration: none; color: var(--v-ink-soft); display: inline-flex; align-items: center; gap: .4em; min-height: 44px; transition: color .16s var(--v-ease-out); }
-  .qnav a b { font-family: var(--v-font-display); font-weight: 500; font-size: var(--v-t-xs); color: var(--v-accent-deep); font-variant-numeric: tabular-nums; }
-  @media (hover: hover) and (pointer: fine) { .qnav a:hover { color: var(--v-ink); } }
+  .qnav { display: flex; gap: var(--v-2); font-size: var(--v-t-sm); }
+  .qnav a { text-decoration: none; color: var(--v-ink-soft); display: inline-flex; align-items: center; white-space: nowrap; padding: .35em .8em; border-radius: 2rem; border: 1px solid transparent; transition: color .16s var(--v-ease-out), border-color .16s var(--v-ease-out), background .16s var(--v-ease-out); }
+  @media (hover: hover) and (pointer: fine) { .qnav a:hover { color: var(--v-ink); border-color: var(--v-hair-strong); background: var(--v-canvas); } }
   .bar__right { display: flex; align-items: center; gap: var(--v-4); }
   .bar__tel { text-decoration: none; font-weight: 600; font-size: var(--v-t-sm); color: var(--v-ink); display: inline-flex; align-items: center; min-height: 44px; padding: 0 var(--v-2); white-space: nowrap; }
   .bar .v-btn { padding: .7em 1.3em; }
