@@ -50,6 +50,29 @@
   .v-page .v-lede { font-weight: 400; }
   .v-page .v-label { font-weight: 600; }
   .v-page .v-btn { font-size: var(--v-t-sm); }
+
+  /* световая волна на кнопках */
+  .v-btn { position: relative; overflow: hidden; }
+  .v-btn::after {
+    content: "";
+    position: absolute; inset: 0; pointer-events: none;
+    background: linear-gradient(
+      108deg,
+      transparent 28%,
+      rgba(255,255,255,.55) 45%,
+      rgba(255,255,255,.65) 50%,
+      rgba(255,255,255,.55) 55%,
+      transparent 72%
+    );
+    transform: translateX(-140%);
+    transition: transform 0s;
+  }
+  @media (hover: hover) and (pointer: fine) {
+    .v-btn:hover::after {
+      transform: translateX(160%);
+      transition: transform .6s cubic-bezier(.4,0,.2,1);
+    }
+  }
   .nowrap { white-space: nowrap; }
   .q { color: var(--v-accent-deep); }   /* номер вопроса в лейбле */
 
